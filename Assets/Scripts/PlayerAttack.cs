@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     Vector3 rightPosition;
 
     [SerializeField]
-    GameObject attackObject;
+    PlayerAttackComponent attackObject;
 
     public static UnityEvent<int> OnAddCombo = new UnityEvent<int>();
     public static UnityEvent<int> OnComboUpdated = new UnityEvent<int>();
@@ -46,28 +46,32 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetButton("Up"))
         {
             transform.position = upPosition;
+            attackObject.SetRotationUp();
         }
         else if (Input.GetButton("Down"))
         {
             transform.position = downPosition;
+            attackObject.SetRotationDown();
         }
         else if (Input.GetButton("Left"))
         {
             transform.position = leftPosition;
+            attackObject.SetRotationLeft();
         }
         else if (Input.GetButton("Right"))
         {
             transform.position = rightPosition;
+            attackObject.SetRotationRight();
         }
         else
         {
             activateObject = false;
         }
-        if (attackObject.activeInHierarchy && !activateObject)
+        if (attackObject.gameObject.activeInHierarchy && !activateObject)
         {
             CheckCombo();
         }
-        attackObject.SetActive(activateObject);
+        attackObject.gameObject.SetActive(activateObject);
     }
 
     void CheckCombo()

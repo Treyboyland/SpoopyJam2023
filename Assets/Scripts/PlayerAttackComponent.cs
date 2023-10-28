@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class PlayerAttackComponent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    float upRotation;
+
+    [SerializeField]
+    float downRotation;
+
+    [SerializeField]
+    float leftRotation;
+
+    [SerializeField]
+    float rightRotation;
+
+    public void SetRotationUp()
     {
-        
+        SetRotation(upRotation);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetRotationDown()
     {
-        
+        SetRotation(downRotation);
+    }
+
+    public void SetRotationLeft()
+    {
+        SetRotation(leftRotation);
+    }
+
+    public void SetRotationRight()
+    {
+        SetRotation(rightRotation);
+    }
+
+    void SetRotation(float angle)
+    {
+        transform.localRotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }

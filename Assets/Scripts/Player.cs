@@ -107,6 +107,7 @@ public class Player : MonoBehaviour
         }
         if (damage > 0)
         {
+            OnResetCombo.Invoke();
             OnDamage.Invoke();
         }
     }
