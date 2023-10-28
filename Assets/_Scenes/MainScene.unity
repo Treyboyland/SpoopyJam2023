@@ -438,6 +438,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RhythmicSpawner - HeartBeat (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8611619939492749456, guid: 9c210389790c54bb9bad4221f45f9b4b, type: 3}
+      propertyPath: m_InitialTime
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -495,6 +499,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RhythmicSpawner - HeartBeat (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8611619939492749456, guid: 9c210389790c54bb9bad4221f45f9b4b, type: 3}
+      propertyPath: m_InitialTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -551,6 +559,10 @@ PrefabInstance:
     - target: {fileID: 6077840762292473112, guid: 9c210389790c54bb9bad4221f45f9b4b, type: 3}
       propertyPath: m_Name
       value: RhythmicSpawner - HeartBeat (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611619939492749456, guid: 9c210389790c54bb9bad4221f45f9b4b, type: 3}
+      propertyPath: m_InitialTime
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
