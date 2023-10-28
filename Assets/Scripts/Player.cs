@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Profiling;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,6 +13,16 @@ public class Player : MonoBehaviour
     int startingLives;
 
     int lives;
+
+    public int Lives
+    {
+        get => lives;
+        protected set
+        {
+            lives = value;
+            OnLivesUpdated.Invoke();
+        }
+    }
 
     int combo;
 
@@ -54,6 +65,8 @@ public class Player : MonoBehaviour
 
     public UnityEvent OnScoreUpdated;
 
+    public UnityEvent OnLivesUpdated;
+
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -74,8 +87,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lives = startingLives;
-
+        Lives = startingLives;
     }
 
     // Update is called once per frame
@@ -86,7 +98,7 @@ public class Player : MonoBehaviour
 
     public void Damgage(int damage)
     {
-        lives = Mathf.Max(lives - damage, 0);
+        Lives = Mathf.Max(lives - damage, 0);
 
         if (lives <= 0)
         {
@@ -103,10 +115,5 @@ public class Player : MonoBehaviour
     {
         OnDeath.Invoke();
         gameObject.SetActive(false);
-    }
-
-    public void Attack()
-    {
-
     }
 }
