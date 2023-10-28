@@ -101,9 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  OnSmashed:
-    m_PersistentCalls:
-      m_Calls: []
+  score: 100
 --- !u!114 &1964218804635785562
 MonoBehaviour:
   m_ObjectHideFlags: 0

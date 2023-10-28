@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
     int damage;
 
+    [SerializeField]
+    int score;
+
     public static UnityEvent<Vector3> OnSmashed = new UnityEvent<Vector3>();
+
+    public int Score { get => score; }
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +48,7 @@ public class Enemy : MonoBehaviour
         if (attack)
         {
             OnSmashed.Invoke(transform.position);
+            Player.PlayerRef.OnEnemyDefeated.Invoke(this);
             gameObject.SetActive(false);
         }
     }

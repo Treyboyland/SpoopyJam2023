@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.WSA;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +13,30 @@ public class Player : MonoBehaviour
 
     int lives;
 
+    int combo;
+
+    public int Combo
+    {
+        get => combo;
+        protected set
+        {
+            combo = value;
+            OnComboUpdated.Invoke();
+        }
+    }
+
+    public int Score
+    {
+        get => score;
+        protected set
+        {
+            score = value;
+            OnScoreUpdated.Invoke();
+        }
+    }
+
+    int score = 0;
+
     static Player _instance;
 
     public static Player PlayerRef => _instance;
@@ -19,6 +44,16 @@ public class Player : MonoBehaviour
     public UnityEvent OnDeath;
 
     public UnityEvent OnDamage;
+
+    public UnityEvent OnResetCombo;
+    public UnityEvent<int> OnAddCombo;
+    public UnityEvent OnComboUpdated;
+
+    public UnityEvent<int> OnAddScore;
+    public UnityEvent<Enemy> OnEnemyDefeated;
+
+    public UnityEvent OnScoreUpdated;
+
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -31,12 +66,15 @@ public class Player : MonoBehaviour
             return;
         }
         _instance = this;
+        OnResetCombo.AddListener(() => Combo = 0);
+        OnAddScore.AddListener(toAdd => Score += toAdd);
     }
 
     // Start is called before the first frame update
     void Start()
     {
         lives = startingLives;
+
     }
 
     // Update is called once per frame
