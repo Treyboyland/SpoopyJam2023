@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     int damage;
 
-    public UnityEvent OnSmashed;
+    public static UnityEvent<Vector3> OnSmashed = new UnityEvent<Vector3>();
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         var attack = other.gameObject.GetComponent<PlayerAttackComponent>();
         if (attack)
         {
-            OnSmashed.Invoke();
+            OnSmashed.Invoke(transform.position);
             gameObject.SetActive(false);
         }
     }
