@@ -11,14 +11,6 @@ public class EnemyMovementLerp : MonoBehaviour
 
     Vector3 startPos;
 
-    static Player player;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     /// <summary>
     /// This function is called when the object becomes enabled and active.
     /// </summary>
