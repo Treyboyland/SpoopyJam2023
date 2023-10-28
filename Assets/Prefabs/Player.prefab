@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 771238357742276381}
   - component: {fileID: 7315182675899403505}
   - component: {fileID: 8492785753282763940}
+  - component: {fileID: 4022404654314105176}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -52,6 +53,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnResetCombo:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAddCombo:
+    m_PersistentCalls:
+      m_Calls: []
+  OnComboUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAddScore:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnemyDefeated:
+    m_PersistentCalls:
+      m_Calls: []
+  OnScoreUpdated:
     m_PersistentCalls:
       m_Calls: []
 --- !u!212 &771238357742276381
@@ -95,7 +114,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 57a040123fc04354f82106e5912d53ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -178,3 +197,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!95 &4022404654314105176
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2284642892115813088}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c1c0b08507dcf042bfe2be9fafa0963, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
