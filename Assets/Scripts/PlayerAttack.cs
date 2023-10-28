@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField]
+    Vector3 upPosition;
+
+    [SerializeField]
+    Vector3 downPosition;
+
+    [SerializeField]
+    Vector3 leftPosition;
+
+    [SerializeField]
+    Vector3 rightPosition;
+
+    [SerializeField]
+    GameObject attackObject;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,21 +34,27 @@ public class PlayerAttack : MonoBehaviour
 
     void MoveAttack()
     {
-        if (Input.GetButtonDown("Up"))
+        bool activateObject = true;
+        if (Input.GetButton("Up"))
         {
-
+            transform.position = upPosition;
         }
-        else if (Input.GetButtonDown("Down"))
+        else if (Input.GetButton("Down"))
         {
-
+            transform.position = downPosition;
         }
-        else if (Input.GetButtonDown("Left"))
+        else if (Input.GetButton("Left"))
         {
-
+            transform.position = leftPosition;
         }
-        else if (Input.GetButtonDown("Right"))
+        else if (Input.GetButton("Right"))
         {
-
+            transform.position = rightPosition;
         }
+        else
+        {
+            activateObject = false;
+        }
+        attackObject.SetActive(activateObject);
     }
 }
