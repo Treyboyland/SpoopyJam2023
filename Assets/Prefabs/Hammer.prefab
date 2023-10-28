@@ -246,4 +246,4 @@ MonoBehaviour:
   downPosition: {x: 0, y: -1, z: 0}
   leftPosition: {x: -1, y: 0, z: 0}
   rightPosition: {x: 1, y: 0, z: 0}
-  attackObject: {fileID: 3516658134584146472}
+  attackObject: {fileID: 1814666791885066623}
