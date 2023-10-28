@@ -29,7 +29,6 @@ public class Enemy : MonoBehaviour
     /// <param name="other">The other Collider2D involved in this collision.</param>
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.LogWarning("Hit", this);
         var player = other.gameObject.GetComponent<Player>();
 
         if (player)
