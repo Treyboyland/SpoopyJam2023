@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4410025588795677765}
   - component: {fileID: 2237258923333782346}
   m_Layer: 0
-  m_Name: RhythmicSpawner
+  m_Name: RhythmicSpawner - HeartBeat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
