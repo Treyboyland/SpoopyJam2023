@@ -33,6 +33,9 @@ public class EnemyMovementLerp : MonoBehaviour
     {
         elapsed += Time.deltaTime;
 
-        transform.position = Vector3.Lerp(startPos, Player.PlayerRef.transform.position, elapsed / secondsToReach);
+        if (Player.PlayerRef != null)
+        {
+            transform.position = Vector3.Lerp(startPos, Player.PlayerRef.transform.position, elapsed / secondsToReach);
+        }
     }
 }
