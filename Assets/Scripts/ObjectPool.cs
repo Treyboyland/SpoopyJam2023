@@ -6,7 +6,7 @@ public class ObjectPool : MonoBehaviour
 {
     static ObjectPool _instance;
 
-    public ObjectPool Instance => _instance;
+    public static ObjectPool Instance => _instance;
 
     Dictionary<GameObject, List<GameObject>> pool = new Dictionary<GameObject, List<GameObject>>();
 
@@ -60,6 +60,6 @@ public class ObjectPool : MonoBehaviour
     {
         var newObj = Spawn(prefab.gameObject);
 
-        return newObj as T;
+        return newObj.GetComponent<T>();
     }
 }
