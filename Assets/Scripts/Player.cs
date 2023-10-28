@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
         }
         _instance = this;
         OnResetCombo.AddListener(() => Combo = 0);
+        OnEnemyDefeated.AddListener((unused) => Combo++);
         OnAddScore.AddListener(toAdd => Score += toAdd);
     }
 

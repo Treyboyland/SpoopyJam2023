@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,11 +26,12 @@ public class PlayerAttack : MonoBehaviour
 
     public static UnityEvent OnComboReset = new UnityEvent();
 
+    bool enemyDefeated = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player.PlayerRef.OnEnemyDefeated.AddListener((unused) => enemyDefeated = true);
     }
 
     // Update is called once per frame
@@ -61,6 +63,19 @@ public class PlayerAttack : MonoBehaviour
         {
             activateObject = false;
         }
+        if (attackObject.activeInHierarchy && !activateObject)
+        {
+            CheckCombo();
+        }
         attackObject.SetActive(activateObject);
+    }
+
+    void CheckCombo()
+    {
+        if(!enemyDefeated)
+        {
+            Player.PlayerRef.OnResetCombo.Invoke();
+        }
+        enemyDefeated = false;
     }
 }
