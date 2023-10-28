@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        var attack = other.gameObject.GetComponent<PlayerAttack>();
+        var attack = other.gameObject.GetComponent<PlayerAttackComponent>();
         if (attack)
         {
             OnSmashed.Invoke();
