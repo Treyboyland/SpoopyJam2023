@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _time: {fileID: 11400000, guid: 4cd24913d4eff1b498fd1b93c7f24b10, type: 2}
   _initialTime: 10
+  _onTimerDone: {fileID: 11400000, guid: 7906d4f9cf6ca924ba340d9d3378bd88, type: 2}
