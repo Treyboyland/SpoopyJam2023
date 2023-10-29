@@ -1178,11 +1178,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Taylor
+  m_text: 'Taylor Grote
 
-    Harrison
+    SobHarrison
 
-    Roosevelt'
+    Roosevelt Boyland III'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fecc08a5e176b8248b65a14a737bbc65, type: 2}
   m_sharedMaterial: {fileID: -1812498107035023065, guid: fecc08a5e176b8248b65a14a737bbc65, type: 2}

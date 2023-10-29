@@ -19,7 +19,7 @@ public class SceneLoaderAnyKey : MonoBehaviour
     private void Update()
     {
         elapsed += Time.deltaTime;
-        if (Input.anyKeyDown && !Input.GetButtonDown("Quit") && elapsed >= delay)
+        if (Input.anyKeyDown && !Input.GetButtonDown("Quit") && !Input.GetButtonDown("Screenshot") && elapsed >= delay)
         {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
