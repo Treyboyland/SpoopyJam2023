@@ -1,11 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.Profiling;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.WSA;
 
 public class Player : MonoBehaviour
 {
@@ -29,7 +23,7 @@ public class Player : MonoBehaviour
     public int Combo
     {
         get => combo;
-        protected set
+        set
         {
             combo = value;
             OnComboUpdated.Invoke();
@@ -51,6 +45,8 @@ public class Player : MonoBehaviour
     static Player _instance;
 
     public static Player PlayerRef => _instance;
+
+    public bool IsAlive { get; protected set; } = true;
 
     public UnityEvent OnDeath;
 
@@ -80,7 +76,6 @@ public class Player : MonoBehaviour
         }
         _instance = this;
         OnResetCombo.AddListener(() => Combo = 0);
-        OnEnemyDefeated.AddListener((unused) => Combo++);
         OnAddScore.AddListener(toAdd => Score += toAdd);
     }
 
@@ -115,6 +110,7 @@ public class Player : MonoBehaviour
     public void Die()
     {
         OnDeath.Invoke();
+        IsAlive = false;
         gameObject.SetActive(false);
     }
 }

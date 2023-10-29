@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -13,7 +14,7 @@ public class SpawnThresholds : ScriptableObject
     List<SpawnPattern> patterns;
 
     [Serializable]
-    public struct SpawnPattern
+    public struct SpawnPattern : IComparable
     {
         public int ComboCount;
         public TimelineAsset Pattern;
@@ -35,5 +36,22 @@ public class SpawnThresholds : ScriptableObject
 
         int randomIndex = UnityEngine.Random.Range(0, possibleTimelines.Count);
         return possibleTimelines[randomIndex];
+    }
+
+    public TimelineAsset GetRandomDirectorGreater(int combo)
+    {
+        int maxValueCombo = patterns.Where(x => x.ComboCount <= combo).Max(x => x.ComboCount);
+        var possibleTimelines = patterns.Where(x => x.ComboCount == maxValueCombo).Select(x => x.Pattern).ToList();
+
+        if (possibleTimelines.Count > 0)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, possibleTimelines.Count);
+            return possibleTimelines[randomIndex];
+        }
+        else
+        {
+            patterns.Sort();
+            return patterns[patterns.Count - 1].Pattern;
+        }
     }
 }

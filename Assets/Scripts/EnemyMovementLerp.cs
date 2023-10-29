@@ -11,13 +11,14 @@ public class EnemyMovementLerp : MonoBehaviour
 
     Vector3 startPos;
 
+    public Vector3 StartPos { get => startPos; set => startPos = value; }
+
     /// <summary>
     /// This function is called when the object becomes enabled and active.
     /// </summary>
     private void OnEnable()
     {
         elapsed = 0;
-        startPos = transform.position;
     }
 
     // Update is called once per frame

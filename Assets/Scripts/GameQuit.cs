@@ -19,7 +19,7 @@ public class GameQuit : MonoBehaviour
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.ExitPlaymode();
-#elif !UNITY_WEBGL
+#elif UNITY_WEBGL
             //Do Nothing
 #else
             Application.Quit();

@@ -31,13 +31,28 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player.PlayerRef.OnEnemyDefeated.AddListener((unused) => enemyDefeated = true);
+        Player.PlayerRef.OnEnemyDefeated.AddListener((unused) =>
+        {
+            if (!enemyDefeated)
+            {
+                //Releases drive up combo meter
+                Player.PlayerRef.Combo++;
+            }
+            enemyDefeated = true;
+        });
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveAttack();
+        if (Player.PlayerRef.IsAlive)
+        {
+            MoveAttack();
+        }
+        else
+        {
+            attackObject.gameObject.SetActive(false);
+        }
     }
 
     void MoveAttack()
@@ -76,7 +91,7 @@ public class PlayerAttack : MonoBehaviour
 
     void CheckCombo()
     {
-        if(!enemyDefeated)
+        if (!enemyDefeated)
         {
             Player.PlayerRef.OnResetCombo.Invoke();
         }
